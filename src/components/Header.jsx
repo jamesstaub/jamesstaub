@@ -1,5 +1,5 @@
 import React from "react";
-
+import LinkTo from "../LinkTo"
 const Header = () => {
   const handleNavigation = (event, path) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ const Header = () => {
         </a>
       </h1>
       <nav>
-        <a href="/about.html" onClick={(e) => handleNavigation(e, "#about")}>
+        <a href="/about.html" onClick={(e) => handleNavigation(e, "about")}>
           About
         </a>
         <a href="/projects.html" onClick={(e) => handleNavigation(e, "/projects.html")}>
