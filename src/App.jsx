@@ -7,8 +7,9 @@ import "./styles/styles.css";
 
 
 
-const App = () => {
-  const [currentPage, setCurrentPage] = useState("home");
+const App = ({initialPage}) => {
+  console.log('initialPage', initialPage)
+  const [currentPage, setCurrentPage] = useState(initialPage || 'home');
 
   useEffect(() => {
     window.addEventListener("popstate", handlePopState);
