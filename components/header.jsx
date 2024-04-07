@@ -1,6 +1,6 @@
 import React from "react";
 
-const NavBar = () => {
+const Header = () => {
   const handleNavigation = (event, path) => {
     event.preventDefault();
     window.history.pushState({}, "", path);
@@ -33,4 +33,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Header;

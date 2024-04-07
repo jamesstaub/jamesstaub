@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-// Import the Home page component
-import Home from "./pages/home.jsx";
+import Home from "./pages/home";
 
-// Import and apply CSS stylesheet
 import "./styles/styles.css";
 
-export default function App() {
+
+
+const App = () => {
+  const [currentPage, setCurrentPage] = useState("home");
+
+  useEffect(() => {
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
+  const handlePopState = () => {
+    const path = window.location.pathname.toLowerCase();
+    switch (path) {
+      case "/projects.html":
+        setCurrentPage("projects");
+        break;
+      case "/music.html":
+        setCurrentPage("music");
+        break;
+      case "/about":
+        setCurrentPage("about");
+        break;
+      default:
+        setCurrentPage("home");
+        break;
+    }
+  };
+
   return (
-    <>
-     <Home />
-    </>
+    <div>
+      {currentPage === "home" && <Home />}
+      {currentPage === "projects" && <Projects />}
+      {currentPage === "about" && <About />}
+      {/* Add other page components as needed */}
+    </div>
   );
-}
+};
+
+export default App;

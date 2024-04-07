@@ -1,5 +1,30 @@
 /* a minimalist set of CSS resets */
 @import 'tachyons.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+:root {
+  --color-bg: #f2f2f2;
+  --transparent-bg: rgba(
+    150,
+    150,
+    150,
+    0.8
+  ); /* Adjust the RGB values as needed */
+
+  --color-text-main: #1a1a1a;
+  --color-primary: #e6e6e6;
+  --color-secondary: #11ee99;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: 'Roboto Slab', serif;
+  --font-family-header: 'Roboto Slab', serif;
+  --container-width: 80%;
+  --container-padding: 0 1.5rem;
+  --border-color: #ccc;
+  --link-margin: 10px;
+}
+
 /* default to border-box */
 html {
   box-sizing: border-box;
@@ -15,6 +40,9 @@ body {
   margin: 1rem;
   font-family: sans-serif;
   line-height: 1.5;
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  position: relative;
 }
 
 /* images and videos max out at full width */
@@ -22,6 +50,16 @@ img,
 video {
   height: auto;
   max-width: 100%;
+}
+
+
+header {
+  background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0) 100%);
+  color: var(--color-text-main);
+  padding: 10px;
+  text-align: center;
+  font-family: var(--font-family-header);
+  padding-bottom: 4rem;
 }
 
 
