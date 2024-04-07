@@ -5,46 +5,41 @@ import About from "./pages/about";
 
 import "./styles/styles.css";
 
+export const routes = [
+  { path: '/', page: <Home />},
+  { path: '/about', page: <About />},
+  { path: '/music', page: <Music />},
+  { path: '/projects', page: <Projects />},
+];
 
 
-const App = ({initialRoute}) => {
-  console.log('initialRoute', initialRoute)
-  const [currentPage, setCurrentPage] = useState(initialRoute);
-
+const App = () => {
+  const [currentPage, setCurrentPage] = useState(null);
+  
+  const handlePopState = () => {
+    const path = window.location.pathname;
+    const currentRoute = routes.find((route) => route.path === path);
+    setCurrentPage(currentRoute ? currentRoute.page : Home);
+  };
+  
   useEffect(() => {
-    window.addEventListener("popstate", handlePopState);
+    const path = window.location.pathname;
+    const currentRoute = routes.find((route) => route.path === path);
+    setCurrentPage(currentRoute ? currentRoute.page : Home);
+
+    window.addEventListener('popstate', handlePopState); // Add event listener for popstate
     return () => {
-      window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener('popstate', handlePopState); // Remove event listener on component unmount
     };
   }, []);
+  
+  useEffect(() => {
+    const path = window.location.pathname;
+    const currentRoute = routes.find((route) => route.path === path);
+    setCurrentPage(currentRoute ? currentRoute.page : Home);
+  }, []);
 
-  const handlePopState = () => {
-    const path = window.location.pathname.toLowerCase();
-
-    switch (path) {
-      case "/projects":
-        setCurrentPage("projects");
-        break;
-      case "/music":
-        setCurrentPage("music");
-        break;
-      case "/about":
-        setCurrentPage("about");
-        break;
-      default:
-        setCurrentPage("home");
-        break;
-    }
-  };
-
-  return (
-    <div>
-      {currentPage === "home" && <Home />}
-      {currentPage === "projects" && <Projects />}
-      {currentPage === "about" && <About />}
-      {/* Add other page components as needed */}
-    </div>
-  );
+  return <div>{currentPage}</div>;
 };
 
 export default App;
