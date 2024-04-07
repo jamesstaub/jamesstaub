@@ -1,5 +1,5 @@
 /* a minimalist set of CSS resets */
-
+@import 'tachyons.css';
 /* default to border-box */
 html {
   box-sizing: border-box;
@@ -22,4 +22,43 @@ img,
 video {
   height: auto;
   max-width: 100%;
+}
+
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  height: 100vh;
+}
+
+
+#sound-toggle {
+  
+  position: fixed;
+  background-color: transparent;
+  background-image: url("https://cdn.glitch.global/68f04808-e771-4afc-9e43-d59773f8b92c/knob.png?v=1701649692727");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 20px;
+  right: 20px;
+  border: none;
+  padding: 35px;
+  cursor: pointer;
+  z-index: 1;
+  transition: ease 300ms;
+}
+
+#sound-toggle.speaker-on  {
+  transform: rotate(300deg);
+  
+}
+
+#sound-toggle.speaker-off  {
+  transform: rotate(30deg);
 }
