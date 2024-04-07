@@ -7,9 +7,9 @@ import "./styles/styles.css";
 
 
 
-const App = ({initialPage}) => {
-  console.log('initialPage', initialPage)
-  const [currentPage, setCurrentPage] = useState(initialPage || 'home');
+const App = ({initialRoute}) => {
+  console.log('initialRoute', initialRoute)
+  const [currentPage, setCurrentPage] = useState(initialRoute);
 
   useEffect(() => {
     window.addEventListener("popstate", handlePopState);
@@ -20,15 +20,15 @@ const App = ({initialPage}) => {
 
   const handlePopState = () => {
     const path = window.location.pathname.toLowerCase();
-    console.log('HPS',path);
+
     switch (path) {
-      case "/projects.html":
+      case "/projects":
         setCurrentPage("projects");
         break;
-      case "/music.html":
+      case "/music":
         setCurrentPage("music");
         break;
-      case "/about.html":
+      case "/about":
         setCurrentPage("about");
         break;
       default:
@@ -36,7 +36,7 @@ const App = ({initialPage}) => {
         break;
     }
   };
-  console.log('cp', currentPage)
+
   return (
     <div>
       {currentPage === "home" && <Home />}

@@ -10,7 +10,7 @@ const Header = () => {
         </LinkTo>
       </h1>
       <nav>
-        <LinkTo to="/about.html">
+        <LinkTo to="/about">
           About
         </LinkTo>
 
