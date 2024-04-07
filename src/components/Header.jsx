@@ -1,24 +1,27 @@
 import React from "react";
 import LinkTo from "../LinkTo"
 const Header = () => {
-  const handleNavigation = (event, path) => {
-    event.preventDefault();
-    window.history.pushState({}, "", path);
-    const eventNav = new Event("popstate");
-    window.dispatchEvent(eventNav);
-  };
 
   return (
     <header>
       <h1>
-        <a href="/" onClick={(e) => handleNavigation(e, "/index.html")}>
+        <LinkTo to="/">
           James Staub
-        </a>
+        </LinkTo>
       </h1>
       <nav>
-        <a href="/about.html" onClick={(e) => handleNavigation(e, "about")}>
+        <LinkTo to="/about.html">
           About
-        </a>
+        </LinkTo>
+
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
+/**
+
         <a href="/projects.html" onClick={(e) => handleNavigation(e, "/projects.html")}>
           Projects
         </a>
@@ -28,9 +31,5 @@ const Header = () => {
         <a href="/contact.html" onClick={(e) => handleNavigation(e, "#contact")}>
           Contact
         </a>
-      </nav>
-    </header>
-  );
-};
-
-export default Header;
+        
+**/
