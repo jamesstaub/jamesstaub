@@ -6,14 +6,7 @@ export default function Home() {
 
   return (
     <>
-
-    <button id="sound-toggle" class="circular-button speaker-off"></button>
-
-    <div id="content-container">
-    </div>
-
-    <BgVid />
-
+      <BgVid />
     </>
   );
 }
