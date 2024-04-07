@@ -18,6 +18,7 @@ const App = () => {
 
   const handlePopState = () => {
     const path = window.location.pathname.toLowerCase();
+    console.log(path);
     switch (path) {
       case "/projects.html":
         setCurrentPage("projects");

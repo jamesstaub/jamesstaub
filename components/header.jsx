@@ -16,7 +16,7 @@ const Header = () => {
         </a>
       </h1>
       <nav>
-        <a href="#about" onClick={(e) => handleNavigation(e, "#about")}>
+        <a href="/about.html" onClick={(e) => handleNavigation(e, "#about")}>
           About
         </a>
         <a href="/projects.html" onClick={(e) => handleNavigation(e, "/projects.html")}>
@@ -25,7 +25,7 @@ const Header = () => {
         <a href="/music.html" onClick={(e) => handleNavigation(e, "/music.html")}>
           Music
         </a>
-        <a href="#contact" onClick={(e) => handleNavigation(e, "#contact")}>
+        <a href="/contact.html" onClick={(e) => handleNavigation(e, "#contact")}>
           Contact
         </a>
       </nav>
