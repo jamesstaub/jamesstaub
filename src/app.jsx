@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Home from "./pages/home";
+import About from "./pages/about";
 
 import "./styles/styles.css";
 
@@ -18,7 +19,7 @@ const App = () => {
 
   const handlePopState = () => {
     const path = window.location.pathname.toLowerCase();
-    console.log(path);
+    console.log('HPS',path);
     switch (path) {
       case "/projects.html":
         setCurrentPage("projects");
@@ -26,7 +27,7 @@ const App = () => {
       case "/music.html":
         setCurrentPage("music");
         break;
-      case "/about":
+      case "/about.html":
         setCurrentPage("about");
         break;
       default:
@@ -34,7 +35,7 @@ const App = () => {
         break;
     }
   };
-
+  console.log('cp', currentPage)
   return (
     <div>
       {currentPage === "home" && <Home />}

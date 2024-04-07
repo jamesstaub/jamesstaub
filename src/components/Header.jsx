@@ -1,7 +1,7 @@
 import React from "react";
-import LinkTo from "../LinkTo"
-const Header = () => {
+import LinkTo from "./LinkTo";
 
+const Header = () => {
   return (
     <header>
       <h1>
