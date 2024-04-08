@@ -3,6 +3,10 @@
 
 /* additional tach-style classes */
 
+.m-auto {
+  margin: auto;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }

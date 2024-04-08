@@ -96,7 +96,7 @@ const Music = () => {
 
   return (
     <>
-      <Header/>
+    <Header/>
     <section>     
       {selectedAlbum && (
         <article className="cf ph3 ph5-ns pv5">
