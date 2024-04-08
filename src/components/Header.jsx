@@ -2,8 +2,11 @@ import React from "react";
 import LinkTo from "./LinkTo";
 import { routes } from '../App';
 
-console.log(routes)
+
 const Header = () => {
+  const linkRoutes = routes.slice();
+  linkRoutes.shift();
+
   return (
     <header>
       <h1>
@@ -12,9 +15,9 @@ const Header = () => {
         </LinkTo>
       </h1>
       <nav>
-        {routes.map((route) => (
+        {linkRoutes.map((route) => (
           <LinkTo key={route.path} to={route.path}>
-            {route.path === '/' ? 'Home' : route.path.slice(1).toUpperCase()}
+            {route.path.slice(1).toUpperCase()}
           </LinkTo>
         ))}
       </nav>
