@@ -5,38 +5,46 @@ import Header from "../components/Header";
 const items = [
   {
     name: 'Bottle Episode',
+    year: '2021',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=1837770693/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'Bottle Episode is a collection of music made over 3 years of experimenting with improvisational composition systems. Each piece was created with unique processes, often starting with acoustic instruments improvising with custom-built machine listening and concatenative synthesis software.',
   },
   {
     name: 'Hemispheres',
+    year: '2018',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=1965124779/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [A]',
+    year: '2010 - 2015',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=141190099/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [B]',
+    year: '2010 - 2015',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=2022445655/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [C]',
+    year: '2010 - 2015',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Generative improv demos',
+    year: '2018 - 2024',
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/850785908&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'experiments',
   },
   {
     name: 'CLIPPING: Story 2 (Muddy Wires Remix)',
+    year: '2023',
     desc: 'This track was made for a beat battle. I used Demucs for source separation and time aligned each sampled track. \nThe original track by clipping changes time signatures every few bars. The remix is a mashup of a bunch of songs in various time signatures matching the original pattern.',
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1498783804&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'remixes',
   },
   {
     name: 'Death Grips - Guillotine Remix',
+    year: '2020',
     desc: 'This track is an experiment where each stem from the original song is re-rendered as orchestral instruments using Google Magenta ai model.',
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/919955083&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'remixes',
@@ -45,9 +53,9 @@ const items = [
 
 const scList = [];
 
-const AlbumItem = ({ album, onClick }) => {
+const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
-    <li>
+    <li className={`${isCurrent && 'b-dark-gray white'}}`}>
       <a href={`#${encodeURIComponent(album.name)}`} onClick={() => onClick(album)}>
         {album.name}
       </a>
@@ -55,15 +63,15 @@ const AlbumItem = ({ album, onClick }) => {
   );
 };
 
+const albums = items.filter((i) => i.target == undefined)
+const remixes = items.filter((i) => i.target == 'remixes')
+const experiments = items.filter((i) => i.target == 'experiments')
+
 const Music = () => {
-
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
-
+  const [selectedAlbum, setSelectedAlbum] = useState(items[0]);
   const loadAlbum = (album) => {
     setSelectedAlbum(album);
   };
-  
-  const albums = items.filter((i) => i.target == undefined)
 
   return (
     <section>
@@ -71,6 +79,28 @@ const Music = () => {
       <h3>Albums</h3>
       <ul>
         {albums.map((album, index) => (
+          <AlbumItem
+            key={index}
+            album={album}
+            onClick={loadAlbum}
+            isActive={selectedAlbum && selectedAlbum.name === album.name}
+          />
+        ))}
+      </ul>
+      <h3>Experiments</h3>
+      <ul>
+        {experiments.map((album, index) => (
+          <AlbumItem
+            key={index}
+            album={album}
+            onClick={loadAlbum}
+            isActive={selectedAlbum && selectedAlbum.name === album.name}
+          />
+        ))}
+      </ul>
+      <h3>Remixes</h3>
+      <ul>
+        {remixes.map((album, index) => (
           <AlbumItem
             key={index}
             album={album}
