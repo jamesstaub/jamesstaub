@@ -8,7 +8,7 @@ const Header = () => {
   linkRoutes.shift();
 
   return (
-    <header className="bg-fade">
+    <header className="bg-fade tc">
       <h1>
         <LinkTo to="/">
           James Staub

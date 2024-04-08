@@ -60,7 +60,7 @@ const scList = [];
 
 const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
-    <li className={`${isCurrent && 'b-dark-gray white'}}`}> 
+    <li className={`${isCurrent ? 'b-dark-gray white' : ''} ph2 `}> 
       <a href={`#${encodeURIComponent(album.name)}`} onClick={() => onClick(album)}>
         {album.name}
       </a>
@@ -69,6 +69,7 @@ const AlbumItem = ({ album, isCurrent, onClick }) => {
 };
 
 const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
+  console.log(selectedAlbum?.name, item.name)
   return (
     <div>
       <h3 className="ttc">{target}</h3>
@@ -103,17 +104,20 @@ const Music = () => {
             <h2 class="f3 mid-gray lh-title">
               {selectedAlbum.target}
             </h2>
-             <iframe
-              title={selectedAlbum.name}
-              src={selectedAlbum.src}
-              width="350"
-              height="350"
-              frameBorder="0"
-              allowFullScreen
-              aria-describedby={`desc-${selectedAlbum.name}`}
-            >
-              <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
-            </iframe>
+            <div className="max-w-350">
+               <iframe
+                title={selectedAlbum.name}
+                src={selectedAlbum.src}
+                width="350"
+                height="350"
+                frameBorder="0"
+                allowFullScreen
+                aria-describedby={`desc-${selectedAlbum.name}`}
+              >
+                <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
+              </iframe>
+            </div>
+            
             <time class="f6 ttu tracked gray">
             
             </time>
