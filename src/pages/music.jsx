@@ -6,27 +6,32 @@ const items = [
   {
     name: 'Bottle Episode',
     year: '2021',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=1837770693/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'Bottle Episode is a collection of music made over 3 years of experimenting with improvisational composition systems. Each piece was created with unique processes, often starting with acoustic instruments improvising with custom-built machine listening and concatenative synthesis software.',
   },
   {
     name: 'Hemispheres',
     year: '2018',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=1965124779/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [A]',
     year: '2010 - 2015',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=141190099/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [B]',
     year: '2010 - 2015',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=2022445655/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [C]',
     year: '2010 - 2015',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
@@ -55,7 +60,7 @@ const scList = [];
 
 const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
-    <li className={`${isCurrent && 'b-dark-gray white'}}`}>
+    <li className={`${isCurrent && 'b-dark-gray white'}}`}> 
       <a href={`#${encodeURIComponent(album.name)}`} onClick={() => onClick(album)}>
         {album.name}
       </a>
@@ -63,9 +68,24 @@ const AlbumItem = ({ album, isCurrent, onClick }) => {
   );
 };
 
-const albums = items.filter((i) => i.target == undefined)
-const remixes = items.filter((i) => i.target == 'remixes')
-const experiments = items.filter((i) => i.target == 'experiments')
+const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
+  return (
+    <div>
+      <h3 className="ttc">{target}</h3>
+      <ul>
+        {items.filter((i)).map((item, index) => (
+          <AlbumItem
+            key={index}
+            album={item}
+            onClick={loadAlbum}
+            isActive={selectedAlbum?.name === item.name}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 
 const Music = () => {
   const [selectedAlbum, setSelectedAlbum] = useState(items[0]);
@@ -76,39 +96,11 @@ const Music = () => {
   return (
     <section>
       <h2>Music</h2>
-      <h3>Albums</h3>
-      <ul>
-        {albums.map((album, index) => (
-          <AlbumItem
-            key={index}
-            album={album}
-            onClick={loadAlbum}
-            isActive={selectedAlbum && selectedAlbum.name === album.name}
-          />
-        ))}
-      </ul>
-      <h3>Experiments</h3>
-      <ul>
-        {experiments.map((album, index) => (
-          <AlbumItem
-            key={index}
-            album={album}
-            onClick={loadAlbum}
-            isActive={selectedAlbum && selectedAlbum.name === album.name}
-          />
-        ))}
-      </ul>
-      <h3>Remixes</h3>
-      <ul>
-        {remixes.map((album, index) => (
-          <AlbumItem
-            key={index}
-            album={album}
-            onClick={loadAlbum}
-            isActive={selectedAlbum && selectedAlbum.name === album.name}
-          />
-        ))}
-      </ul>
+
+      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+
       {selectedAlbum && (
         <div>
           <iframe
