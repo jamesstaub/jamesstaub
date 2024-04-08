@@ -72,8 +72,8 @@ const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
   return (
     <div>
       <h3 className="ttc">{target}</h3>
-      <ul>
-        {items.filter((i)).map((item, index) => (
+      <ul class="list pl0 ">
+        {items.filter((i) => i.target === target).map((item, index) => (
           <AlbumItem
             key={index}
             album={item}
@@ -94,15 +94,27 @@ const Music = () => {
   };
 
   return (
-    <section>
-      <h2>Music</h2>
-
-      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-      <AlbumList albums={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
-
+    <section>     
       {selectedAlbum && (
-        <div>
+        <article class="cf ph3 ph5-ns pv5">
+          <header class="fn fl-ns w-50-ns pr4-ns">
+            <h1 class="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
+            <h2 class="f3 mid-gray lh-title">
+              {selectedAlbum.target}
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+
+            </h2>
+            <time class="f6 ttu tracked gray">
+            
+            </time>
+          </header>
+          <div class="fn fl-ns w-50-ns">
+            <p class="f5 lh-copy measure mt0-ns">
+              {selectedAlbum.desc}
+            </p>
+            <p class="f5 lh-copy measure">
           <iframe
             title={selectedAlbum.name}
             src={selectedAlbum.src}
@@ -114,12 +126,13 @@ const Music = () => {
           >
             <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
           </iframe>
-          <div id={`desc-${selectedAlbum.name}`} tabIndex="0" role="region" aria-label={`${selectedAlbum.name} description`}>
-            {selectedAlbum.desc}
+            </p>
           </div>
-        </div>
+        </article>
+
+
       )}
-      {/* SoundCloud or other iframe */}
+
     </section>
   );
 };
