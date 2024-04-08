@@ -54,12 +54,14 @@ video {
 
 
 header {
-  background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0) 100%);
   color: var(--color-text-main);
   padding: 10px;
-  text-align: center;
   font-family: var(--font-family-header);
   padding-bottom: 4rem;
+}
+
+.bg-fade {
+  background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0) 100%);
 }
 
 nav a,
@@ -75,13 +77,6 @@ nav a:hover {
   color: var(--color-secondary);
 }
 
-section {
-  padding: 20px;
-  background-color: #fff; /* Add your desired background color */
-  margin: 10px;
-  max-width: 800px; /* Adjust as needed */
-  margin: auto;
-}
 
 img {
   max-width: var(--image-max-width);

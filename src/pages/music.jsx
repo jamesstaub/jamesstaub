@@ -94,6 +94,7 @@ const Music = () => {
   };
 
   return (
+    <>
     <section>     
       {selectedAlbum && (
         <article class="cf ph3 ph5-ns pv5">
@@ -101,39 +102,42 @@ const Music = () => {
             <h1 class="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
             <h2 class="f3 mid-gray lh-title">
               {selectedAlbum.target}
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
-
             </h2>
+             <iframe
+              title={selectedAlbum.name}
+              src={selectedAlbum.src}
+              width="350"
+              height="350"
+              frameBorder="0"
+              allowFullScreen
+              aria-describedby={`desc-${selectedAlbum.name}`}
+            >
+              <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
+            </iframe>
             <time class="f6 ttu tracked gray">
             
             </time>
           </header>
           <div class="fn fl-ns w-50-ns">
+
             <p class="f5 lh-copy measure mt0-ns">
               {selectedAlbum.desc}
             </p>
             <p class="f5 lh-copy measure">
-          <iframe
-            title={selectedAlbum.name}
-            src={selectedAlbum.src}
-            width="350"
-            height="350"
-            frameBorder="0"
-            allowFullScreen
-            aria-describedby={`desc-${selectedAlbum.name}`}
-          >
-            <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
-          </iframe>
+
             </p>
           </div>
         </article>
 
-
       )}
-
+      <nav>
+        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+      </nav>
     </section>
+
+    </>
   );
 };
 
