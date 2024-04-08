@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
-
+      
 
 const items = [
   {
@@ -60,7 +60,7 @@ const scList = [];
 
 const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
-    <li className={`${isCurrent ? 'b-dark-gray white' : ''} ph2 `}> 
+    <li className={`${isCurrent ? 'underline' : ''} ph2`}> 
       <a href={`#${encodeURIComponent(album.name)}`} onClick={() => onClick(album)}>
         {album.name}
       </a>
@@ -69,17 +69,17 @@ const AlbumItem = ({ album, isCurrent, onClick }) => {
 };
 
 const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
-  console.log(selectedAlbum?.name, item.name)
+  
   return (
     <div>
       <h3 className="ttc">{target}</h3>
-      <ul class="list pl0 ">
+      <ul className="list pl0 ">
         {items.filter((i) => i.target === target).map((item, index) => (
           <AlbumItem
             key={index}
             album={item}
             onClick={loadAlbum}
-            isActive={selectedAlbum?.name === item.name}
+            isCurrent={selectedAlbum?.name === item.name}
           />
         ))}
       </ul>
@@ -96,12 +96,13 @@ const Music = () => {
 
   return (
     <>
+      <Header/>
     <section>     
       {selectedAlbum && (
-        <article class="cf ph3 ph5-ns pv5">
-          <header class="fn fl-ns w-50-ns pr4-ns">
-            <h1 class="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
-            <h2 class="f3 mid-gray lh-title">
+        <article className="cf ph3 ph5-ns pv5">
+          <header className="fn fl-ns w-50-ns pr4-ns">
+            <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
+            <h2 className="f3 mid-gray lh-title">
               {selectedAlbum.target}
             </h2>
             <div className="max-w-350">
@@ -118,16 +119,16 @@ const Music = () => {
               </iframe>
             </div>
             
-            <time class="f6 ttu tracked gray">
+            <time className="f6 ttu tracked gray">
             
             </time>
           </header>
-          <div class="fn fl-ns w-50-ns">
+          <div className="fn fl-ns w-50-ns">
 
-            <p class="f5 lh-copy measure mt0-ns">
+            <p className="f5 lh-copy measure mt0-ns">
               {selectedAlbum.desc}
             </p>
-            <p class="f5 lh-copy measure">
+            <p className="f5 lh-copy measure">
 
             </p>
           </div>
@@ -135,9 +136,9 @@ const Music = () => {
 
       )}
       <nav>
-        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-        <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+        <AlbumList key="1" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+        <AlbumList key="2" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+        <AlbumList key="3" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
       </nav>
     </section>
 

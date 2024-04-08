@@ -14,9 +14,9 @@ const Header = () => {
           James Staub
         </LinkTo>
       </h1>
-      <nav>
+      <nav className="flex justify-between mw7">
         {linkRoutes.map((route) => (
-          <LinkTo key={route.path} to={route.path}>
+          <LinkTo className="min-w-120 tc" key={route.path} to={route.path}>
             {route.path.slice(1).toUpperCase()}
           </LinkTo>
         ))}

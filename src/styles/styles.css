@@ -79,8 +79,7 @@ h1 a {
 }
 
 nav a:hover {
-  background-color: var(--color-text-main);
-  color: var(--color-secondary);
+  font-weight: 700;
 }
 
 
