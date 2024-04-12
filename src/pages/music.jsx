@@ -99,14 +99,25 @@ const Music = () => {
     <Header/>
     <section>     
       {selectedAlbum && (
-        <article className="cf ph3 ph5-ns pv5">
+        <div className="cf ph3 ph5-ns pv5">
           <header className="fn fl-ns w-50-ns pr4-ns">
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
+              <nav>
+                <AlbumList key="1" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+                <AlbumList key="2" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+                <AlbumList key="3" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+              </nav>
             <h2 className="f3 mid-gray lh-title">
               {selectedAlbum.target}
             </h2>
-            <div className="max-w-350">
-               <iframe
+            
+            
+            <time className="f6 ttu tracked gray">
+            
+            </time>
+          </header>
+          <div className="fn fl-ns w-50-ns">
+            <iframe
                 title={selectedAlbum.name}
                 src={selectedAlbum.src}
                 width="350"
@@ -115,16 +126,7 @@ const Music = () => {
                 allowFullScreen
                 aria-describedby={`desc-${selectedAlbum.name}`}
               >
-                <a href={selectedAlbum.src}>{selectedAlbum.name} by James Staub</a>
               </iframe>
-            </div>
-            
-            <time className="f6 ttu tracked gray">
-            
-            </time>
-          </header>
-          <div className="fn fl-ns w-50-ns">
-
             <p className="f5 lh-copy measure mt0-ns">
               {selectedAlbum.desc}
             </p>
@@ -132,14 +134,10 @@ const Music = () => {
 
             </p>
           </div>
-        </article>
+        </div>
 
       )}
-      <nav>
-        <AlbumList key="1" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-        <AlbumList key="2" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-        <AlbumList key="3" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
-      </nav>
+
     </section>
 
     </>
