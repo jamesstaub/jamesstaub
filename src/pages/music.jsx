@@ -107,16 +107,13 @@ const Music = () => {
                 <AlbumList key="2" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
                 <AlbumList key="3" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
               </nav>
-            <h2 className="f3 mid-gray lh-title">
-              {selectedAlbum.target}
-            </h2>
-            
-            
             <time className="f6 ttu tracked gray">
-            
             </time>
           </header>
           <div className="fn fl-ns w-50-ns">
+            <h2 className="f3 mid-gray lh-title">
+              {selectedAlbum.target}
+            </h2>
             <iframe
                 title={selectedAlbum.name}
                 src={selectedAlbum.src}
