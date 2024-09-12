@@ -35,8 +35,9 @@ const items = [
     src: 'https://bandcamp.com/EmbeddedPlayer/album=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
-    name: 'Generative improv demos',
+    name: 'Machine Listening Demos',
     year: '2018 - 2024',
+    desc: 'Improvisation on acoustic instruments accompanied by machine listening software. The accompaniment system uses onset detection and various pitch and timbre analyis methods to control playback of phrases from a corpus of audio',
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/850785908&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'experiments',
   },
@@ -99,7 +100,7 @@ const Music = () => {
     <Header/>
     <section>     
       {selectedAlbum && (
-        <div className="cf ph3 ph5-ns pv5">
+        <div className="cf ph3 ph5-ns pv4">
           <header className="fn fl-ns w-50-ns pr4-ns">
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
               <nav>
