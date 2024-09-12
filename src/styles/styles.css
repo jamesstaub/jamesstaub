@@ -37,7 +37,7 @@ html {
 
 /* adjust typography defaults */
 body {
-  margin: 1rem;
+  margin: 0rem;
   font-family: sans-serif;
   line-height: 1.5;
   font-family: var(--font-family);
@@ -130,4 +130,14 @@ button {
 
 #sound-toggle.speaker-off  {
   transform: rotate(30deg);
+}
+
+.full-bg-vid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
 }

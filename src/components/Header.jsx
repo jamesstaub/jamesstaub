@@ -8,18 +8,23 @@ const Header = () => {
   linkRoutes.shift();
 
   return (
-    <header className="bg-fade tc">
+    <header className="bg-fade">
       <h1>
-        <LinkTo to="/">
+        <LinkTo clas to="/">
           James Staub
         </LinkTo>
       </h1>
-      <nav className="flex justify-between mw6 m-auto">
-        {linkRoutes.map((route) => (
-          <LinkTo className="min-w-120 tc" key={route.path} to={route.path}>
-            {route.path.slice(1).toUpperCase()}
-          </LinkTo>
+      <nav>
+        <ul className="list pl0">
+          {linkRoutes.map((route) => (
+            <li>
+              <LinkTo className="" key={route.path} to={route.path}>
+                {route.path.slice(1).toUpperCase()}
+              </LinkTo>
+            </li>
         ))}
+        </ul>
+        
       </nav>
 
     </header>
