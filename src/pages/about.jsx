@@ -6,7 +6,11 @@ export default function Home() {
   return (
     <>
       <Header/>
-      About James
+      <section>
+        <p>
+          James is a musician 
+        </p>
+      </section>
     </>
   );
 }

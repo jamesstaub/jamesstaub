@@ -132,7 +132,7 @@ const Music = () => {
                 aria-describedby={`desc-${selectedAlbum.name}`}
               >
               </iframe>
-            <p className="f5 lh-copy measure mt0-ns">
+            <p className="f5 lh-copy measure mt2-ns">
               {selectedAlbum.desc}
             </p>
             <p className="f5 lh-copy measure">
