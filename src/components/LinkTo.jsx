@@ -1,6 +1,6 @@
 import React from "react";
 
-const LinkTo = ({ to, children, onClick }) => {
+const LinkTo = ({ to, children, onClick, className }) => {
   const handleClick = (event) => {
     event.preventDefault();
     window.history.pushState({}, "", to);
@@ -12,7 +12,7 @@ const LinkTo = ({ to, children, onClick }) => {
   };
 
   return (
-    <a href={to} onClick={handleClick} role="link" aria-label={children}>
+    <a className={className} href={to} onClick={handleClick} role="link" aria-label={children}>
       {children}
     </a>
   );

@@ -9,8 +9,8 @@ const Header = () => {
 
   return (
     <header className="bg-fade">
-      <h1>
-        <LinkTo clas to="/">
+      <h1 className="mv1">
+        <LinkTo className="pl0 ml0" to="/">
           James Staub
         </LinkTo>
       </h1>
