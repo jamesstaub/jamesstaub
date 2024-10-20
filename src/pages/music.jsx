@@ -4,6 +4,13 @@ import Header from "../components/Header";
 
 const items = [
   {
+    name: 'ARC!',
+    year: '2024',
+    target: 'albums',
+    src: 'https://bandcamp.com/EmbeddedPlayer/album=2787704011/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    desc: 'ARC! is a cello improvisation with an algorithmic accompaniment system built between 2022 and 2024. The synthesis is built using the fantastic sp-tools library built by Rodrigo Constanzo. The system uses onset detection, timbre classificatiton an corpus-based sampling.',
+  },
+  {
     name: 'Bottle Episode',
     year: '2021',
     target: 'albums',
