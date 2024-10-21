@@ -26,8 +26,9 @@ const items = [
   {
     name: 'A PLUNDERPHONIC REANIMATION OF LISTENING WOMAN\'S NONE​-​A​-​THAT STUFF!',
     year: '2018',
-    target: 'albums',
+    target: 'remixes',
     src: 'https://bandcamp.com/EmbeddedPlayer/album=1058095212/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    desc: 'This remix album is a tribute to the great Boston-area band of the 20-teens, Listening Woman. This work was created by slicing the entire album up by onset and rearranging it with various re-stitching algorithms.'
   },
   {
     name: 'Memory Leak [A]',
