@@ -9,16 +9,16 @@ const Header = () => {
 
   return (
 
-      <header className="flex justify-between pa2 ma2">
+      <header className="flex flex-column justify-between pa2 ma2 w5">
       <h1 className="mv1">
         <LinkTo className="pl0 ml0" to="/">
           James Staub
         </LinkTo>
       </h1>
       <nav className="min-w-8rem">
-        <ul className="list pl0 flex justify-between">
+        <ul className="list mv2 pl0 flex justify-between">
           {linkRoutes.map((route) => (
-            <li className="ph1">
+            <li className="">
               <LinkTo className="" key={route.path} to={route.path}>
                 {route.path.slice(1).toUpperCase()}
               </LinkTo>
