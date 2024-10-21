@@ -8,7 +8,7 @@ export default function Home() {
       <Header/>
       <section>
         <p>
-          James is a musician 
+          James is a musician and programmer. 
         </p>
       </section>
     </>
