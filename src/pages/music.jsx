@@ -1,52 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
-
+import List from "../components/List";
+import { slugify } from "../../utils.js";
 
 const items = [
   {
     name: 'ARC!',
     year: '2024',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=2787704011/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=2787704011/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'ARC! is a cello improvisation with an algorithmic accompaniment system built between 2022 and 2024. The synthesis is built using the fantastic sp-tools library built by Rodrigo Constanzo. The system uses onset detection, timbre classificatiton an corpus-based sampling.',
   },
   {
     name: 'Bottle Episode',
     year: '2021',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=1837770693/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=1837770693/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'Bottle Episode is a collection of music made over 3 years of experimenting with improvisational composition systems. Each piece was created with unique processes, often starting with acoustic instruments improvising with custom-built machine listening and concatenative synthesis software.',
   },
   {
     name: 'Hemispheres',
     year: '2018',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=1965124779/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=1965124779/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'A PLUNDERPHONIC REANIMATION OF LISTENING WOMAN\'S NONE​-​A​-​THAT STUFF!',
     year: '2018',
     target: 'remixes',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=1058095212/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
-    desc: 'This remix album is a tribute to the great Boston-area band of the 20-teens, Listening Woman. This work was created by slicing the entire album up by onset and rearranging it with various re-stitching algorithms.'
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=1058095212/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    desc: 'This remix list is a tribute to the great Boston-area band of the 20-teens, Listening Woman. This work was created by slicing the entire list up by onset and rearranging it with various re-stitching algorithms.'
   },
   {
     name: 'Memory Leak [A]',
     year: '2010 - 2015',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=141190099/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=141190099/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [B]',
     year: '2010 - 2015',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=2022445655/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=2022445655/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [C]',
     year: '2010 - 2015',
-    target: 'albums',
-    src: 'https://bandcamp.com/EmbeddedPlayer/album=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
+    target: 'lists',
+    src: 'https://bandcamp.com/EmbeddedPlayer/list=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Machine Listening Demos',
@@ -71,96 +72,68 @@ const items = [
   },
 ];
 
-const slugify = (text) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 
-const AlbumItem = ({ album, isCurrent, onClick }) => {
-  return (
-    <li className={`${isCurrent ? 'underline' : ''} pv1 ph2`}> 
-      <a href={`#${encodeURIComponent(slugify(album.name))}`} onClick={() => onClick(album)}>
-        {album.name}
-      </a>
-    </li>
-  );
-};
-
-const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
-  return (
-    <div>
-      <h3 className="ttc">{target}</h3>
-      <ul className="list pl0 ">
-        {items.filter((i) => i.target === target).map((item, index) => (
-          <AlbumItem
-            key={index}
-            album={item}
-            onClick={loadAlbum}
-            isCurrent={selectedAlbum?.name === item.name}
-          />
-        ))}
-      </ul>
-    </div>
-  );
-};
 
 const Music = () => {
-  const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const [selectedList, setSelectedList] = useState(null);
 
-  const loadAlbum = (album) => {
-    setSelectedAlbum(album);
-    window.location.hash = slugify(album.name);
+  const loadList = (list) => {
+    setSelectedList(list);
+    window.location.hash = slugify(list.name);
   };
 
-  const resetAlbum = () => {
-    setSelectedAlbum(null);
+  const resetList = () => {
+    setSelectedList(null);
     window.location.hash = '';
   };
 
   useEffect(() => {
-    const albumSlug = window.location.hash.slice(1);
-    const matchingAlbum = items.find((album) => slugify(album.name) === albumSlug);
-    if (matchingAlbum) setSelectedAlbum(matchingAlbum);
-    else setSelectedAlbum(null);
+    const listSlug = window.location.hash.slice(1);
+    const matchingList = items.find((list) => slugify(list.name) === listSlug);
+    if (matchingList) setSelectedList(matchingList);
+    else setSelectedList(null);
   }, []);
 
   return (
     <>
       <Header />
-      <button className="ml3 text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
-        ← All Music
+      <button className="ml3 text-btn dn-ns db ph0 pv2" onClick={resetList}>
+        ← Back
       </button>
       <section>
         <div className="pv2 pa3 flex flex-column flex-row-ns">
           {/* Left Sidebar */}
-          <div className={`sidebar w-100 w-50-ns ${selectedAlbum ? 'dn db-ns' : ''}`}>
+          <div className={`sidebar w-100 w-50-ns ${selectedList ? 'dn db-ns' : ''}`}>
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
             <nav>
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+              <List items={items} loadList={loadList} selectedList={selectedList} target="lists" />
+              <List items={items} loadList={loadList} selectedList={selectedList} target="experiments" />
+              <List items={items} loadList={loadList} selectedList={selectedList} target="remixes" />
             </nav>
           </div>
 
-          {/* Album Details Section */}
-          <div className={`album-detail w-100 ${selectedAlbum ? 'w-100-ns' : 'dn'}`}>
-            {selectedAlbum ? (
+          {/* List Details Section */}
+          <div className={`list-detail w-100 ${selectedList ? 'w-100-ns' : 'dn'}`}>
+            {selectedList ? (
               <>
 
                 <h2 className="f3 lh-title mt1 tl-ns">
-                  {selectedAlbum.name} - {selectedAlbum.year}
+                  {selectedList.name} - {selectedList.year}
                 </h2>
                 <iframe
                   className="ma0-ns db"
-                  title={selectedAlbum.name}
-                  src={selectedAlbum.src}
+                  title={selectedList.name}
+                  src={selectedList.src}
                   width="350"
                   height="350"
                   frameBorder="0"
                   allowFullScreen
-                  aria-describedby={`desc-${selectedAlbum.name}`}
+                  aria-describedby={`desc-${selectedList.name}`}
                 ></iframe>
-                <p className="f5 lh-copy measure mt2-ns">{selectedAlbum.desc}</p>
+                <p className="f5 lh-copy measure mt2-ns">{selectedList.desc}</p>
               </>
             ) : (
-              <p>Select an album to view details.</p>
+              <p>Select an list to view details.</p>
             )}
           </div>
         </div>
