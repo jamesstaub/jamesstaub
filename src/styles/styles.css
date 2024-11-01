@@ -88,6 +88,13 @@ button {
   font-family: var(--font-family-header);
 }
 
+.text-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-main);
+  cursor: pointer;
+}
+
 
 
 #background-video {

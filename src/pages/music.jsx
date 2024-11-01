@@ -140,10 +140,10 @@ const Music = () => {
           <div className={`album-detail w-100 ${selectedAlbum ? 'w-100-ns' : 'dn'}`}>
             {selectedAlbum ? (
               <>
-                <button className="mb3 f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" onClick={resetAlbum}>
-                  All Music
+                <button className="text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
+                  ← All Music
                 </button>
-                <h2 className="f3 mid-gray lh-title">
+                <h2 className="f3 mid-gray lh-title mt1">
                   {selectedAlbum.name} - {selectedAlbum.year}
                 </h2>
                 <iframe
