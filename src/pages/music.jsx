@@ -127,7 +127,7 @@ const Music = () => {
           </header>
           <div className="fn fl-ns w-50-ns">
             <h2 className="f3 mid-gray lh-title">
-              {selectedAlbum.target}
+              {selectedAlbum.name} - {selectedAlbum.year}
             </h2>
             <iframe
                 title={selectedAlbum.name}

@@ -9,9 +9,9 @@ import "./styles/styles.css";
 
 export const routes = [
   { path: '/', page: () => <Home /> },
-  { path: '/about', page: () => <About /> },
   { path: '/music', page: () => <Music /> },
   { path: '/projects', page: () => <Projects /> },
+  { path: '/about', page: () => <About /> },  
 ];
 
 

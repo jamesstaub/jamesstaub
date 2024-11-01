@@ -78,10 +78,6 @@ h1 a {
   padding: 1rem;
 }
 
-nav a:hover {
-  font-weight: 700;
-}
-
 
 img {
   max-width: var(--image-max-width);

@@ -3,6 +3,10 @@
 
 /* additional tach-style classes */
 
+.bg-main {
+  background-color: #f2f2f2;
+}
+
 .m-auto {
   margin: auto;
 }
