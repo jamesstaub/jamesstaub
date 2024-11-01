@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
-      
+
 
 const items = [
   {
@@ -71,9 +71,7 @@ const items = [
   },
 ];
 
-const scList = [];
 const slugify = (text) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-
 
 const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
@@ -86,7 +84,6 @@ const AlbumItem = ({ album, isCurrent, onClick }) => {
 };
 
 const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
-  
   return (
     <div>
       <h3 className="ttc">{target}</h3>
@@ -104,64 +101,68 @@ const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
   );
 };
 
-/**
- * 
- * Hey copilot, here's teh refactor we're about to do:
- * to make it mobile friendly, when a user clicks on an album, we want to hide the left sidebar and show the album in full screen.
- * if possible take advantage of the tachyons responsiveness`ns-` and 
- */
-
 const Music = () => {
-  const [selectedAlbum, setSelectedAlbum] = useState(items[0]);
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
+
   const loadAlbum = (album) => {
     setSelectedAlbum(album);
+    window.location.hash = slugify(album.name);
   };
+
+  const resetAlbum = () => {
+    setSelectedAlbum(null);
+    window.location.hash = '';
+  };
+
+  useEffect(() => {
+    const albumSlug = window.location.hash.slice(1);
+    const matchingAlbum = items.find((album) => slugify(album.name) === albumSlug);
+    if (matchingAlbum) setSelectedAlbum(matchingAlbum);
+    else setSelectedAlbum(null);
+  }, []);
 
   return (
     <>
-    <Header/>
-    <section>     
-      {selectedAlbum && (
-        <div className="pa2">
-          {/* left column */}
-          <div className="fn fl-ns w-50-ns pr4-ns">
+      <Header />
+      <section>
+        <div className="pa2 flex flex-column flex-row-ns">
+          {/* Left Sidebar */}
+          <div className={`sidebar w-100 w-50-ns ${selectedAlbum ? 'dn db-ns' : ''}`}>
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
-              <nav>
-                <AlbumList key="1" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
-                <AlbumList key="2" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
-                <AlbumList key="3" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
-              </nav>
-            <time className="f6 ttu tracked gray">
-            </time>
+            <nav>
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="experiments" />
+              <AlbumList items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="remixes" />
+            </nav>
           </div>
-          {/* right column */}
-          <div className="fn fl-ns w-50-ns">
-            <h2 className="f3 mid-gray lh-title">
-              {selectedAlbum.name} - {selectedAlbum.year}
-            </h2>
-            <iframe
-                title={selectedAlbum.name}
-                src={selectedAlbum.src}
-                width="350"
-                height="350"
-                frameBorder="0"
-                allowFullScreen
-                aria-describedby={`desc-${selectedAlbum.name}`}
-              >
-              </iframe>
-            <p className="f5 lh-copy measure mt2-ns">
-              {selectedAlbum.desc}
-            </p>
-            <p className="f5 lh-copy measure">
 
-            </p>
+          {/* Album Details Section */}
+          <div className={`album-detail w-100 ${selectedAlbum ? 'w-100-ns' : 'dn'}`}>
+            {selectedAlbum ? (
+              <>
+                <button className="mb3 f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-blue" onClick={resetAlbum}>
+                  All Music
+                </button>
+                <h2 className="f3 mid-gray lh-title">
+                  {selectedAlbum.name} - {selectedAlbum.year}
+                </h2>
+                <iframe
+                  title={selectedAlbum.name}
+                  src={selectedAlbum.src}
+                  width="350"
+                  height="350"
+                  frameBorder="0"
+                  allowFullScreen
+                  aria-describedby={`desc-${selectedAlbum.name}`}
+                ></iframe>
+                <p className="f5 lh-copy measure mt2-ns">{selectedAlbum.desc}</p>
+              </>
+            ) : (
+              <p>Select an album to view details.</p>
+            )}
           </div>
         </div>
-
-      )}
-
-    </section>
-
+      </section>
     </>
   );
 };
