@@ -88,6 +88,10 @@ button {
   font-family: var(--font-family-header);
 }
 
+section {
+  color: var(--color-text-main);
+}
+
 .text-btn {
   background: none;
   border: none;
@@ -97,7 +101,7 @@ button {
 
 
 
-#background-video {
+#bg-vid {
   position: fixed;
   top: 0;
   left: 0;
@@ -136,11 +140,11 @@ button {
 }
 
 .full-bg-vid {
-    position: absolute;
+/*     position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -1; */
 }

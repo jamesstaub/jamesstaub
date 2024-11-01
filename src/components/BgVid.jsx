@@ -54,6 +54,7 @@ export default function BgVid() {
       ></button>
 
       <video
+        id="bg-vid"
         class="full-bg-vid"
         ref={videoRef}
         autoPlay

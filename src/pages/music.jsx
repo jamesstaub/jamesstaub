@@ -124,8 +124,11 @@ const Music = () => {
   return (
     <>
       <Header />
+      <button className="text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
+        ← All Music
+      </button>
       <section>
-        <div className="pa2 flex flex-column flex-row-ns">
+        <div className="pv2 pa3 flex flex-column flex-row-ns">
           {/* Left Sidebar */}
           <div className={`sidebar w-100 w-50-ns ${selectedAlbum ? 'dn db-ns' : ''}`}>
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
@@ -140,14 +143,12 @@ const Music = () => {
           <div className={`album-detail w-100 ${selectedAlbum ? 'w-100-ns' : 'dn'}`}>
             {selectedAlbum ? (
               <>
-                <button className="text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
-                  ← All Music
-                </button>
-                <h2 className="f3 mid-gray lh-title mt1 tl-ns tc">
+
+                <h2 className="f3 lh-title mt1 tl-ns tc">
                   {selectedAlbum.name} - {selectedAlbum.year}
                 </h2>
                 <iframe
-                  className="m-auto db"
+                  className="ma0-ns db"
                   title={selectedAlbum.name}
                   src={selectedAlbum.src}
                   width="350"
