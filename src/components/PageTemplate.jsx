@@ -17,7 +17,12 @@ const PageTemplate = ({pageName, items}) => {
     window.location.hash = '';
   };
   
-  const targets = items.map((i)=>i.target);
+  const targets = items.map((i)=>i.target).reduce((acc, v) => {
+    if (!acc.includes(v)) {
+      acc.push(v);
+    }
+    return acc;
+  }, []);
 
   useEffect(() => {
     const listSlug = window.location.hash.slice(1);
