@@ -102,6 +102,14 @@ const AlbumList = ({ items, loadAlbum, selectedAlbum, target }) => {
   );
 };
 
+/**
+ * 
+ * Hey copilot, here's teh refactor we're about to do:
+ * to make it mobile friendly, when a user clicks on an album, we want to hide the left sidebar and show the album in full screen.
+ * if possible take advantage of the tachyons responsiveness classes like `ns-` for media queries.
+ * 
+ * 
+ */
 
 const Music = () => {
   const [selectedAlbum, setSelectedAlbum] = useState(items[0]);
@@ -115,7 +123,8 @@ const Music = () => {
     <section>     
       {selectedAlbum && (
         <div className="pa2">
-          <header className="fn fl-ns w-50-ns pr4-ns">
+          {/* left column */}
+          <div className={`${"fn fl-ns w-50-ns pr4-ns"} ${selectedAlbum ? 'w-100' : ''}`}>
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">Music</h1>
               <nav>
                 <AlbumList key="1" items={items} loadAlbum={loadAlbum} selectedAlbum={selectedAlbum} target="albums" />
@@ -124,8 +133,9 @@ const Music = () => {
               </nav>
             <time className="f6 ttu tracked gray">
             </time>
-          </header>
-          <div className="fn fl-ns w-50-ns">
+          </div>
+          {/* right column */}
+          <div className="fn fl-ns w-50-ns w-100">
             <h2 className="f3 mid-gray lh-title">
               {selectedAlbum.name} - {selectedAlbum.year}
             </h2>
