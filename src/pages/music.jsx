@@ -124,7 +124,7 @@ const Music = () => {
   return (
     <>
       <Header />
-      <button className="text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
+      <button className="ml3 text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
         ← All Music
       </button>
       <section>
@@ -144,7 +144,7 @@ const Music = () => {
             {selectedAlbum ? (
               <>
 
-                <h2 className="f3 lh-title mt1 tl-ns tc">
+                <h2 className="f3 lh-title mt1 tl-ns">
                   {selectedAlbum.name} - {selectedAlbum.year}
                 </h2>
                 <iframe

@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
 
-      <header className="flex flex-column justify-between pa2 ma2 w5">
+      <header className="flex flex-column justify-between pa2 mh0 ma2 w5">
       <h1 className="mv1">
         <LinkTo className="bg-main pv0 ph2 ml0" to="/">
           James Staub
