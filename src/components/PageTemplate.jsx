@@ -38,17 +38,17 @@ const PageTemplate = ({pageName, items}) => {
           <div className={`sidebar w-100 w-50-ns ${selectedList ? 'dn db-ns' : ''}`}>
             <h1 className="f2 lh-title fw9 mb3 mt0 pt3 bt bw2">{pageName}</h1>
             <nav>
-              {targets.map((target)=><List items={items} loadList={loadList} selectedList={selectedList} target={target}/>  )}
+              {targets.map((target, idx)=> (<List id={idx} items={items} loadList={loadList} selectedList={selectedList} target={target}/>))}
               
             </nav>
           </div>
 
           {/* List Details Section */}
-          <div className={`list-detail w-100 ${selectedList ? 'w-100-ns' : 'dn'}`}>
+          <div className={`list-detail ml3 w-100 ${selectedList ? 'w-100-ns' : 'dn'}`}>
             {selectedList ? (
               <>
 
-                <h2 className="f3 lh-title mt1 tl-ns">
+                <h2 className="f3 lh-title mt1 mt3-ns tl-ns">
                   {selectedList.name} - {selectedList.year}
                 </h2>
                 <iframe
@@ -64,7 +64,7 @@ const PageTemplate = ({pageName, items}) => {
                 <p className="f5 lh-copy measure mt2-ns">{selectedList.desc}</p>
               </>
             ) : (
-              <p>Select an list to view details.</p>
+              null
             )}
           </div>
         </div>

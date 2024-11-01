@@ -13,7 +13,6 @@ const items = [
 ];
 
 
-
 const Projects = () => {
   return <PageTemplate pageName="Projects" items={items} />
 };

@@ -5,21 +5,21 @@ const items = [
   {
     name: 'ARC!',
     year: '2024',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=2787704011/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'ARC! is a cello improvisation with an algorithmic accompaniment system built between 2022 and 2024. The synthesis is built using the fantastic sp-tools library built by Rodrigo Constanzo. The system uses onset detection, timbre classificatiton an corpus-based sampling.',
   },
   {
     name: 'Bottle Episode',
     year: '2021',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=1837770693/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
     desc: 'Bottle Episode is a collection of music made over 3 years of experimenting with improvisational composition systems. Each piece was created with unique processes, often starting with acoustic instruments improvising with custom-built machine listening and concatenative synthesis software.',
   },
   {
     name: 'Hemispheres',
     year: '2018',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=1965124779/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
@@ -32,19 +32,19 @@ const items = [
   {
     name: 'Memory Leak [A]',
     year: '2010 - 2015',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=141190099/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [B]',
     year: '2010 - 2015',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=2022445655/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
     name: 'Memory Leak [C]',
     year: '2010 - 2015',
-    target: 'lists',
+    target: 'albums',
     src: 'https://bandcamp.com/EmbeddedPlayer/list=3347458347/size=large/bgcol=333333/linkcol=0f91ff/minimal=true/transparent=true/',
   },
   {
