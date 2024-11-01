@@ -58,7 +58,7 @@ const items = [
   {
     name: 'CLIPPING: Story 2 (Muddy Wires Remix)',
     year: '2023',
-    desc: 'This track was made for a beat battle. I used Demucs for source separation and time aligned each sampled track. \nThe original track by clipping changes time signatures every few bars. The remix is a mashup of a bunch of songs in various time signatures matching the original pattern.',
+    desc: 'This track was made for a beat battle. I used Demucs for source separation and time aligned each sampled track. The original track by clipping changes time signatures every few bars. The remix is a mashup of a bunch of songs in various time signatures matching the original pattern.',
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1498783804&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'remixes',
   },
@@ -75,7 +75,7 @@ const slugify = (text) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z
 
 const AlbumItem = ({ album, isCurrent, onClick }) => {
   return (
-    <li className={`${isCurrent ? 'underline' : ''} ph2`}> 
+    <li className={`${isCurrent ? 'underline' : ''} pv1 ph2`}> 
       <a href={`#${encodeURIComponent(slugify(album.name))}`} onClick={() => onClick(album)}>
         {album.name}
       </a>
@@ -143,10 +143,11 @@ const Music = () => {
                 <button className="text-btn dn-ns db ph0 pv2" onClick={resetAlbum}>
                   ← All Music
                 </button>
-                <h2 className="f3 mid-gray lh-title mt1">
+                <h2 className="f3 mid-gray lh-title mt1 tl-ns tc">
                   {selectedAlbum.name} - {selectedAlbum.year}
                 </h2>
                 <iframe
+                  className="m-auto db"
                   title={selectedAlbum.name}
                   src={selectedAlbum.src}
                   width="350"
