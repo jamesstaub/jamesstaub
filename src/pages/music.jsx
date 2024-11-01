@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from "../components/Header";
 import List from "../components/List";
-import { slugify } from "../../utils.js";
+import { slugify } from '../utils.js';
 
 const items = [
   {

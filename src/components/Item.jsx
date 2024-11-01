@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { slugify } from "../../utils.js";
-
+import { slugify } from '../utils.js';
 
 const Item = ({ list, isCurrent, onClick }) => {
   return (
