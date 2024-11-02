@@ -50,7 +50,11 @@ const items = [
   {
     name: 'Machine Listening Demos',
     year: '2018 - 2024',
-    desc: (<>'Improvisation on acoustic instruments accompanied by machine listening software. The accompaniment system uses onset detection and various pitch and timbre analyis methods to control playback of phrases from a corpus of audio'</>),
+    desc: (<>
+      <p>Improvisation on acoustic instruments accompanied by machine listening software.</p>
+      <p>The accompaniment system uses onset detection and various pitch and timbre analyis methods to control playback of phrases from a corpus of audio</p>
+      <p>More description of this on Projects page.</p>
+    </>),
     src: 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/850785908&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true',
     target: 'experiments',
   },
