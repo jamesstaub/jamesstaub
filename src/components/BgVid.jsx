@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import VideoAudioModulator from "./VideoAudioModulator";
 const videoUrls = [
   "https://cdn.glitch.global/68f04808-e771-4afc-9e43-d59773f8b92c/hammond-light.mp4?v=1701541867230",
   "https://cdn.glitch.global/68f04808-e771-4afc-9e43-d59773f8b92c/flower-press.mp4?v=1701542038924",
@@ -10,6 +10,8 @@ const videoUrls = [
   "https://cdn.glitch.global/68f04808-e771-4afc-9e43-d59773f8b92c/tape-rain.mp4?v=1701542081220",
   "https://cdn.glitch.global/68f04808-e771-4afc-9e43-d59773f8b92c/organ-mubu.mp4?v=1701542140632",
 ];
+
+
 
 export default function BgVid() {
   const [isSoundOn, setIsSoundOn] = useState(false);
@@ -52,8 +54,15 @@ export default function BgVid() {
         className={`circular-button ${isSoundOn ? "speaker-on" : "speaker-off"}`}
         onClick={toggleSound}
       ></button>
+      <VideoAudioModulator src={videoUrls[currentVideoIndex]}></VideoAudioModulator>
+      
+    </>
+  );
+}
 
-      <video
+
+/**
+<video
         id="bg-vid"
         class="full-bg-vid"
         ref={videoRef}
@@ -62,6 +71,6 @@ export default function BgVid() {
         loop
         src={videoUrls[currentVideoIndex]}
       ></video>
-    </>
-  );
-}
+      
+      
+      **/
