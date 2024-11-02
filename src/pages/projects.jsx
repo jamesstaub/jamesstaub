@@ -10,6 +10,11 @@ const items = [
     desc: '',
   },
   {
+    name: 'Generative Accompaniment Programs',
+    target: 'Max/MSP',
+    desc: '<a href="www.google.com">link</a>'
+  },
+  {
     name: 'LAB/YRI/NTH',
     target: 'Algorithmic Music',
     year: '2022',
