@@ -56,7 +56,7 @@ const PageTemplate = ({pageName, items}) => {
                 <h2 className="f3 lh-title mt1 mt3-ns tl-ns">
                   {selectedList.name} - {selectedList.year}
                 </h2>
-                <iframe
+                {selectedList.src && <iframe
                   className="ma0-ns db"
                   title={selectedList.name}
                   src={selectedList.src}
@@ -65,7 +65,7 @@ const PageTemplate = ({pageName, items}) => {
                   frameBorder="0"
                   allowFullScreen
                   aria-describedby={`desc-${selectedList.name}`}
-                ></iframe>
+                ></iframe>}
                 <p className="f5 lh-copy measure mt2-ns">{selectedList.desc}</p>
               </>
             ) : (
