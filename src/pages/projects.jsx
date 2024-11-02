@@ -9,6 +9,12 @@ const items = [
     src: '',
     desc: '',
   },
+  {
+    name: 'LAB/YRI/NTH',
+    target: 'Algorithmic Music',
+    year: '2022',
+    desc: ''
+  }
 
 ];
 
