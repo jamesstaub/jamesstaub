@@ -8,7 +8,7 @@ const List = ({ items, loadList, selectedList, target }) => {
         {items.filter((i) => i.target === target).map((item, index) => (
           <Item
             key={index}
-            list={item}
+            item={item}
             onClick={loadList}
             isCurrent={selectedList?.name === item.name}
           />

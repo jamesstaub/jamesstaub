@@ -64,6 +64,13 @@ header {
   background: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0) 100%);
 }
 
+/* underline li items on hover */
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+
 nav a {
   color: var(--color-text-main);
   text-decoration: none;
@@ -90,6 +97,13 @@ button {
 
 section {
   color: var(--color-text-main);
+}
+
+#Music iframe {
+    border: 0;
+    min-width: 350px; 
+    min-height: 470px;
+    max-width: 40rem;
 }
 
 .text-btn {
