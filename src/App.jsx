@@ -24,10 +24,22 @@ const App = () => {
     setCurrentPage(currentRoute ? currentRoute.page : Home);
   };
 
+
   useEffect(() => {
-    const path = window.location.pathname;
+    // First, try to get the attempted route from localStorage
+    const attemptedRoute = localStorage.getItem('attemptedRoute');
+    const path = attemptedRoute || window.location.pathname;
+
+    // Find the route that matches the path (from localStorage or current pathname)
     const currentRoute = routes.find((route) => route.path === path);
+
+    // Set the current page to the matched route or fallback to Home
     setCurrentPage(currentRoute ? currentRoute.page : Home);
+
+    // Clear the attemptedRoute from localStorage (if used)
+    if (attemptedRoute) {
+      localStorage.removeItem('attemptedRoute');
+    }
 
     window.addEventListener('popstate', handlePopState);
     return () => {

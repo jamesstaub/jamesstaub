@@ -6,7 +6,13 @@
   <title>Page Not Found</title>
   <script>
     // Redirect to the root index.html page, allowing frontend routing to handle the path
-    debugger
+    // Capture the attempted route
+    const attemptedRoute = window.location.pathname;
+
+    // Store the attempted route in localStorage
+    localStorage.setItem('attemptedRoute', attemptedRoute);
+
+    // Redirect to the root page (index.html)
     window.location.replace('/');
   </script>
 </head>
