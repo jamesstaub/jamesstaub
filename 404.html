@@ -8,17 +8,21 @@
     // Capture the attempted route from the URL
     const attemptedRoute = window.location.pathname;
 
-    // Redirect to the attempted route
-    if (attemptedRoute !== '/') {
+    // Check if the route is not '/' and not '/404.html' (to avoid redirect loop)
+    if (attemptedRoute !== '/' && !attemptedRoute.includes('404.html')) {
+      // Redirect to the attempted route
       window.location.replace(attemptedRoute);
     } else {
-      // Fallback for root if necessary
-      window.location.replace('/');
+      // If already on the 404 page or root, show fallback message
+      document.body.innerHTML = `
+        <h1>Page Not Found</h1>
+        <p>Sorry, we couldn't find the page you were looking for.</p>
+      `;
     }
   </script>
 </head>
 <body>
   <h1>Page Not Found</h1>
-  <p>Redirecting you back to the route you attempted...</p>
+  <p>Redirecting you to the route you attempted...</p>
 </body>
 </html>
