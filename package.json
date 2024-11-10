@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "build": "vite build && npm run copy-404",
+    "copy-404": "cp ./404.html ./build/"
+
   },
   "dependencies": {
     "react": "^18.2.0",
