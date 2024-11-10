@@ -25,7 +25,7 @@ const App = () => {
   };
 
 
-  useEffect(() => {
+useEffect(() => {
     // First, try to get the attempted route from localStorage
     const attemptedRoute = localStorage.getItem('attemptedRoute');
     const path = attemptedRoute || window.location.pathname;
@@ -41,7 +41,13 @@ const App = () => {
       localStorage.removeItem('attemptedRoute');
     }
 
+    // Ensure the URL bar reflects the current path
+    if (path !== window.location.pathname) {
+      window.history.replaceState(null, '', path);
+    }
+
     window.addEventListener('popstate', handlePopState);
+
     return () => {
       window.removeEventListener('popstate', handlePopState);
     };
