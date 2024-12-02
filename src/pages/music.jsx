@@ -11,7 +11,7 @@ const items = [
         <iframe src="https://bandcamp.com/EmbeddedPlayer/album=2787704011/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://muddywires.bandcamp.com/album/arc">ARC! by James Staub</a></iframe>
       )
     },
-    desc: 'ARC! is a cello improvisation with an algorithmic accompaniment system built between 2022 and 2024. The synthesis is built using the fantastic sp-tools library built by Rodrigo Constanzo. The system uses onset detection, timbre classificatiton an corpus-based sampling.',
+    desc: 'ARC! is a cello improvisation with an algorithmic accompaniment system built between 2022 and 2024. The realtime synthesis is achieved from custom software built with the fantastic Data Knot library built by Rodrigo Constanzo. The system uses onset detection, timbre classificatiton an corpus-based sampling.',
   },
   {
     name: 'Shit Talking The US Empire (Soundtrack)',
@@ -24,7 +24,7 @@ const items = [
     </>),
     iframe() {
       return (
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5bPfFeHVSLg?si=yxUFuPu1DzryXeEH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/5bPfFeHVSLg?si=yxUFuPu1DzryXeEH" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       )
     }
   },
@@ -103,7 +103,7 @@ const items = [
               width="100%"
               height="300"
               scrolling="no"
-              frameborder="no"
+              frameBorder="no"
               allow="autoplay"
               src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/850785908&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
             ></iframe>
@@ -123,7 +123,7 @@ const items = [
           width="100%"
           height="300"
           scrolling="no"
-          frameborder="no"
+          frameBorder="no"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1498783804&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ></iframe>
@@ -149,7 +149,7 @@ const items = [
           width="100%"
           height="300"
           scrolling="no"
-          frameborder="no"
+          frameBorder="no"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/919955083&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
         ></iframe>

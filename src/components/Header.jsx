@@ -18,8 +18,8 @@ const Header = () => {
       </h1>
       <nav className="min-w-8rem">
         <ul className="list mv2 pl0 flex justify-between">
-          {linkRoutes.map((route) => (
-            <Item isCurrent={location.pathname == route.path}>
+          {linkRoutes.map((route, idx) => (
+            <Item key={idx} isCurrent={location.pathname == route.path}>
               <LinkTo className="bg-main underline-hover" key={route.path} to={route.path}>
                 {route.path.slice(1).toUpperCase()}
               </LinkTo>
