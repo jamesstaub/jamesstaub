@@ -43,7 +43,7 @@ const PageTemplate = ({pageName, items}) => {
         </button>
       )}
       <section>
-        <div className="pv2 pa3 flex flex-column flex-row-ns">
+        <div className="pv2 pa2 flex flex-column flex-row-ns">
           {/* Left Sidebar */}
           <div className={`sidebar w-100 w-50-ns mw5 ${selectedList ? 'dn db-ns' : ''}`}>
             <nav>
