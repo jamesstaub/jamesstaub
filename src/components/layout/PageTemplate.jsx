@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Header from "../components/Header";
-import List from "../components/List";
-import { slugify } from '../utils.js';
+import { Header } from "../layout";
+import { List } from "../common";
+import { slugify } from '../../utils';
 
 
 const PageTemplate = ({pageName, items}) => {

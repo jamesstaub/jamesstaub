@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from 'react';
 
-import { Home, About, Music, Projects } from "./pages";
-
-import "./styles/styles.css";
-
-export const routes = [
-  { path: '/', page: () => <Home /> },
-  { path: '/music', page: () => <Music /> },
-  { path: '/projects', page: () => <Projects /> },
-  { path: '/about', page: () => <About /> },  
-];
-
-
-const App = () => {
+export const useNavigation = (routes) => {
   const [currentPage, setCurrentPage] = useState();
 
   const handlePopState = () => {
     const path = window.location.pathname;
     const currentRoute = routes.find((route) => route.path === path);
-    setCurrentPage(currentRoute ? currentRoute.page : Home);
+    setCurrentPage(currentRoute ? currentRoute.page : routes[0].page);
   };
 
-
-useEffect(() => {
+  useEffect(() => {
     // First, try to get the attempted route from localStorage
     const attemptedRoute = localStorage.getItem('attemptedRoute');
     const path = attemptedRoute || window.location.pathname;
@@ -31,7 +18,7 @@ useEffect(() => {
     const currentRoute = routes.find((route) => route.path === path);
 
     // Set the current page to the matched route or fallback to Home
-    setCurrentPage(currentRoute ? currentRoute.page : Home);
+    setCurrentPage(currentRoute ? currentRoute.page : routes[0].page);
 
     // Clear the attemptedRoute from localStorage (if used)
     if (attemptedRoute) {
@@ -50,7 +37,5 @@ useEffect(() => {
     };
   }, []);
 
-  return currentPage;
+  return { currentPage, handlePopState };
 };
-
-export default App;

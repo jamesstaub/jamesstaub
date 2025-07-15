@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from "../components/Item"
+import { Item } from "../ui";
 const List = ({ items, loadList, selectedList, target }) => {
   return (
     <div>

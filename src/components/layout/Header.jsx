@@ -1,7 +1,7 @@
 import React from "react";
-import LinkTo from "./LinkTo";
-import { routes } from '../App';
-import Item from "./Item";
+import { LinkTo } from "../ui";
+import { routes } from '../../App';
+import { Item } from "../ui";
 
 
 const Header = () => {

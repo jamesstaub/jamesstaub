@@ -1,6 +1,6 @@
 import * as React from "react";
-import BgVid from "../components/BgVid";
-import Header from "../components/Header";
+import { BgVid } from "../components/media";
+import { Header } from "../components/layout";
 
 export default function Home() {
   return (

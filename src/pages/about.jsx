@@ -1,6 +1,5 @@
 import * as React from "react";
-import Header from "../components/Header";
-import PageTemplate from "../components/PageTemplate";
+import { Header, PageTemplate } from "../components/layout";
 
 export default function Home() {
 
